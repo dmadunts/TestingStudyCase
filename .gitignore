@@ -13,4 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
-/app/src/main/java/com/dmadunts/testingstudycase/ApiKeys.kt
+/app/src/main/java/com/dmadunts/testingstudycase/data/ApiKeys.kt
+/.idea/misc.xml

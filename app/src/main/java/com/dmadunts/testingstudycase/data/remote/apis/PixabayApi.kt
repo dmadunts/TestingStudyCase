@@ -1,6 +1,6 @@
 package com.dmadunts.testingstudycase.data.remote.apis
 
-import com.dmadunts.testingstudycase.ApiKeys
+import com.dmadunts.testingstudycase.data.ApiKeys
 import com.dmadunts.testingstudycase.data.remote.responses.ImageResponse
 import retrofit2.Response
 import retrofit2.http.GET
