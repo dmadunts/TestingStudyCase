@@ -2,8 +2,11 @@ package com.dmadunts.testingstudycase.di
 
 import android.content.Context
 import androidx.room.Room
+import com.dmadunts.testingstudycase.data.local.ShoppingDao
 import com.dmadunts.testingstudycase.data.local.ShoppingItemDatabase
 import com.dmadunts.testingstudycase.data.remote.apis.PixabayApi
+import com.dmadunts.testingstudycase.data.remote.repository.RemoteShoppingRepository
+import com.dmadunts.testingstudycase.data.repositories.ShoppingRepository
 import com.dmadunts.testingstudycase.utils.Constants.BASE_URL
 import com.dmadunts.testingstudycase.utils.Constants.DATABASE_NAME
 import dagger.Module
@@ -32,4 +35,9 @@ object AppModule {
         return Retrofit.Builder().baseUrl(BASE_URL).build()
             .create(PixabayApi::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideRemoteShoppingRepository(dao: ShoppingDao, api: PixabayApi) =
+        RemoteShoppingRepository(dao, api) as ShoppingRepository
 }
