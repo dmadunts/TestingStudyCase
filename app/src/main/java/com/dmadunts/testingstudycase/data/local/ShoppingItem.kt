@@ -8,6 +8,7 @@ data class ShoppingItem(
     val name: String,
     val price: Float,
     val amount: Int,
+    val imageUrl: String,
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null
 )

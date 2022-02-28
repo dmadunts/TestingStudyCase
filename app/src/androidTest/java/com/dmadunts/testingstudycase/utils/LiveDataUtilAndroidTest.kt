@@ -1,4 +1,4 @@
-package com.dmadunts.testingstudycase
+package com.dmadunts.testingstudycase.utils
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData

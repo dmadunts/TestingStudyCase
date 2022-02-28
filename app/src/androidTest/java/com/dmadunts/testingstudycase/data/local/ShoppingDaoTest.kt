@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
-import com.dmadunts.testingstudycase.getOrAwaitValue
+import com.dmadunts.testingstudycase.utils.getOrAwaitValue
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -43,7 +43,7 @@ class ShoppingDaoTest {
 
     @Test
     fun insertShoppingItem() = runTest {
-        val shoppingItem = ShoppingItem("name", 1f, 1, 1)
+        val shoppingItem = ShoppingItem("name", 1f, 1, "imageUrl", 1)
         dao.insertShoppingItem(shoppingItem)
         val allShoppingItems = dao.observeAllShoppingItems().getOrAwaitValue()
         assertThat(allShoppingItems).contains(shoppingItem)
@@ -51,7 +51,7 @@ class ShoppingDaoTest {
 
     @Test
     fun deleteShoppingItem() = runTest {
-        val shoppingItem = ShoppingItem("name", 1f, 1, 1)
+        val shoppingItem = ShoppingItem("name", 1f, 1, "imageUrl")
         dao.insertShoppingItem(shoppingItem)
         dao.deleteShoppingItem(shoppingItem)
         val allShoppingItems = dao.observeAllShoppingItems().getOrAwaitValue()
@@ -61,9 +61,9 @@ class ShoppingDaoTest {
     @Test
     fun observeTotalPrice() = runTest {
         val items = arrayListOf(
-            ShoppingItem("name", 100f, 5, 1),
-            ShoppingItem("name2", 50f, 3, 2),
-            ShoppingItem("name3", 33f, 10, 3)
+            ShoppingItem("name", 100f, 5, "imageUrl1"),
+            ShoppingItem("name2", 50f, 3, "imageUr2"),
+            ShoppingItem("name3", 33f, 10, "imageUr3")
         )
 
         items.forEach { item ->
